@@ -1,0 +1,131 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.container {
+	height: 100%; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.screen {
+	width: 100%;
+	max-width: 1075px;
+	height: 100%;
+	background: #ffffff;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+}
+.inner {
+	padding-top: 40px;
+	padding-bottom: 60px;
+	width: 84%;
+	height: auto;
+}
+.byState {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.7em;
+	line-height: 28px;
+	color: #1c2c40;
+}
+.country {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+}
+.country svg {
+	fill: #fff5f0;
+	margin-top: -20px;
+	transform: scale(0.9);
+}
+.country svg path {
+	stroke: rgba(255, 7, 58, 0.12);;
+	stroke-width: 2px;
+}
+.country svg path:hover {
+	fill: #f5dccf;
+}
+
+.info {
+	position: relative;
+	font-size: 1.2em;
+	margin-top: 32px;
+	padding: 16px;
+	width: 100%;
+	background: #ffffff;
+	box-shadow: 0px 8px 40px rgba(28, 44, 64, 0.1);
+}
+.countryName {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.5em;
+	line-height: 22px;
+	color: #1c2c40;
+}
+.param {
+	margin-top: 16px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 16px;
+}
+.block{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 0.2em 0;
+	height: 2em;
+}
+.title {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 0.75em;
+	line-height: 14px;
+
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+
+	color: #8391a7;
+}
+.count {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 18px;
+}
+.red {
+	color: #ff073a;
+}
+.blue {
+	color: #007bff;
+}
+.green {
+	color: #28a745;
+}
+.gray {
+	color: #6c757d;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+	body{
+		font-size: 16px;
+	}
+}
+@media only screen and (max-width: 768px) and (min-width: 460px) {
+	body{
+		font-size: 15px;
+	}
+}
+@media only screen and (max-width: 460px){
+	body{
+		font-size: 14px;
+	}
+}

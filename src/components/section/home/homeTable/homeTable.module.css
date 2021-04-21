@@ -1,0 +1,61 @@
+.linkTable{
+	text-decoration: none;
+	color: #1c2c40;
+}
+.linkTable:hover{
+	text-decoration: underline;
+	color: #395d94;
+}
+table {
+	margin-top: 32px;
+	width: 100%;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.875em;
+	line-height: 18px;
+	color: #1c2c40;
+}
+tr {
+	height: 34px;
+	width: 100%;
+}
+th {
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: start;
+	background: #f9fafc;
+	border-radius: 5px;
+}
+.blue{
+	color: #007BFF;
+}
+.green{
+	color: #28A745;
+}
+.gray{
+	color: #6C757D;
+}
+.red {
+	color: #FF073A;
+}
+@media only screen and (min-width: 1025px){
+	* {
+		font-size: 16px;
+	}	
+}
+@media only screen and (max-width: 768px) and (min-width: 460px) {
+	* {
+		font-size: 15px;
+	}
+}
+@media only screen and (max-width: 460px) and (min-width: 400px){
+	* {
+		font-size: 13px;
+	}
+}
+@media only screen and (max-width: 400px) and (min-width: 320px){
+	* {
+		font-size: 9.4px;
+	}
+}

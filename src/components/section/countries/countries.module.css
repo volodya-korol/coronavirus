@@ -1,0 +1,102 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+hr {
+	border: 1px solid #e5e9f2;
+}
+.container {
+	/* width: 100%;
+	height: 753px; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.screen {
+	/* width: 375px;
+	height: 667px; */
+	width: 100%;
+	height: 100vh;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+}
+.inner {
+	padding-top: 40px;
+	padding-bottom: 24px;
+	width: 84%;
+	height: auto;
+}
+
+.back {
+	display: flex;
+	align-items: center;
+}
+.backArrow {
+	width: 8px;
+	height: 14px;
+	margin: 0px 8px;
+	cursor: pointer;
+}
+.backChoosingCountry {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.43em;
+	line-height: 28px;
+	color: #1c2c40;
+	margin: 0px 16px;
+}
+.search {
+	margin-top: 16px;
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+	background-color: #f1f2f6;
+	border-radius: 8px;
+}
+
+.searchIcon {
+	padding: 12px 0px 12px 12px;
+	color: white;
+	min-width: 24px;
+	text-align: center;
+}
+
+.searchInput {
+	width: 100%;
+	padding: 10px;
+	outline: none;
+	background-color: transparent;
+	border: 0;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 20px;
+	color: #5e697a;
+}
+.searchInput::placeholder {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 20px;
+	color: #8391a7;
+}
+.searchInput::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	height: 1em;
+	width: 1em;
+	border-radius: 50em;
+	background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+	background-size: contain;
+	opacity: 1;
+	cursor: pointer;
+}
+
