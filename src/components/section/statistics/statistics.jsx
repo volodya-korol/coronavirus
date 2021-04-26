@@ -2,8 +2,6 @@ import React from "react";
 import s from "./statistics.module.css";
 
 let Statistics = (props) => {
-	let x = document.querySelectorAll(".path")
-	console.log(x);
 	return (
 		<div className={s.container}>
 			<div className={s.screen}>
@@ -12,8 +10,7 @@ let Statistics = (props) => {
 					<div className={s.country}>
 						<svg
 							onClick={(e) => {
-								console.log(e.target.id);
-								e.target.id.length > 2 ? props.getStatsRegion(e.target.id) : console.log("tap on region");
+								if(e.target.id.length > 2) props.getStatsRegion(e.target.id);
 							}}
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 612 410">
@@ -304,7 +301,8 @@ let Statistics = (props) => {
 							<tbody>
 								<tr>
 									{props.scale.map((m,i) => {
-										if(i < 3)return <th key={m.min}>{!m.min ? m.max + "++" : m.min + " - " + m.max}</th>;
+										if(i < 3)return <th key={i}>{!m.min ? m.max + "++" : m.min + " - " + m.max}</th>;
+										return null
 									})}
 								</tr>
 							</tbody>
@@ -320,7 +318,8 @@ let Statistics = (props) => {
 							<tbody>
 								<tr>
 									{props.scale.map((m,i) => {
-										if(i >= 3) return <th key={m.min}>{!m.min ? m.max + "++" : m.min + " - " + m.max}</th>;
+										if(i >= 3) return <th key={i}>{!m.min ? m.max + "++" : m.min + " - " + m.max}</th>;
+										return null
 									})}
 								</tr>
 							</tbody>

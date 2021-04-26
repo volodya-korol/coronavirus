@@ -10,10 +10,9 @@ let News = (props) => {
 					<h2 className={s.news}>Latest News</h2>
 					<div className={s.articles}>
 					{!props.news
-							? console.log("none")
-							: props.news.map((m) => {
-									console.log(m.img);
-									return <NewsItem img={m.img} link={m.link} title={m.title} text={m.text} time={m.time} />;
+							? null
+							: props.news.map((m,i) => {
+									return <NewsItem key={i} img={m.img} link={m.link} title={m.title} text={m.text} time={m.time} />;
 							  })}
 					</div>
 				</div>

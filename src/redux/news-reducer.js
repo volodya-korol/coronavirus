@@ -43,6 +43,7 @@ export let getNews = () => async (dispatch) => {
 			let obj = { link: `${link}`, img: `${img}`, title: `${title}`, text: `${text}`, time: `${time}` };
 			arr.push(obj);
 		}
+		return null
 	});
 	dispatch(setNews(arr));
 	dispatch(setPreLoader(false))

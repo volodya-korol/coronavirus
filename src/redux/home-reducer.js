@@ -110,9 +110,9 @@ const Homereduser = (state = InitialSate, action) => {
 export const getStatisticsInRegion = (iso = "UKR") => (dispatch) => {
 	dispatch(setPreLoader(true))
 	getstatisticsInRegionApi(iso).then((response) => {
-		console.log(response);
+		
 		if (!response[0]) {
-			let o = "o";
+			return null
 		} else {
 			dispatch(setStatisticsInRegion(response));
 			dispatch(setCountryName(response[0].region.name));
@@ -161,7 +161,6 @@ export const getStatisticsInRegion = (iso = "UKR") => (dispatch) => {
 export const getTotal = () => (dispatch) => {
 	dispatch(setPreLoader(true))
 	getTotalApi().then((response) => {
-		console.log(response);
 		dispatch(setChangeConfirmed(response.confirmed_diff));
 		dispatch(setChangeActive(response.active_diff));
 		dispatch(setChangeRecovered(response.recovered_diff));
