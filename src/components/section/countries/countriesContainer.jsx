@@ -8,8 +8,6 @@ class CountryApi extends Component {
 		this.props.getCountries();
 	};
 	render() {
-		
-	
 		return (
 			<Countries
 				searchValue={this.props.searchValue}
@@ -23,6 +21,7 @@ class CountryApi extends Component {
 let mapStateToProps = (state) => {
 	return {
 		countries: state.Countriesreduser.countries,
+		countriesFilter: state.Countriesreduser.countriesFilter,
 		searchValue: state.Countriesreduser.searchValue,
 	};
 };

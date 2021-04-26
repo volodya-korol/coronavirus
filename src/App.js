@@ -5,13 +5,13 @@ import StatisticsContainer from "./components/section/statistics/statisticsConta
 import Footer from "./components/footer/footer";
 import { Route } from "react-router";
 import HomeContainer from "./components/section/home/homeContainer";
+import NewsContainer from "./components/section/news/newsContainer";
 import Tips from "./components/section/tips/tips";
 function App(props) {
 	return (
 		<div>
 			<main>
 				<Route exact path="/" render={() => <LoadingContainer />} />
-
 				<Route path="/country">
 					<CountriesContainer />
 					<Footer />
@@ -26,6 +26,10 @@ function App(props) {
 				</Route>
 				<Route path="/tips">
 					<Tips />
+					<Footer />
+				</Route>
+				<Route path="/news">
+					<NewsContainer />
 					<Footer />
 				</Route>
 			</main>

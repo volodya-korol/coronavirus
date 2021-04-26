@@ -19,14 +19,13 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 1.5em;
-	line-height: 28px;
+	line-height: 1.5em;
 	color: #1c2c40;
 }
 .icon {
 	border-radius: 50%;
 	float: left;
 	top: 0px;
-	position: relative;
 	padding: 0 7px;
 }
 .articles {
@@ -44,7 +43,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-size: 0.75em;
-	line-height: 16px;
+	line-height: 1em;
 	color: #8391a7;
 }
 .content {
@@ -67,16 +66,16 @@
 	font-family: Proxima Nova;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 1.5em;
-	line-height: 20px;
+	font-size: 1.1em;
+	line-height: 1.25em;
 	color: #1c2c40;
 }
 .textDescription {
 	font-family: Proxima Nova;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 0.78125em;
-	line-height: 17px;
+	font-size: 0.90em;
+	line-height: 1.3em;
 	color: #5a6679;
 	max-height: 88px;
 
@@ -87,8 +86,35 @@
 	max-height: 500px;
 	
 }
-
-@media only screen and (max-width: 1024px) and (min-width: 768px){
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+	.textDescription {
+		max-height: 95px;
+	}
+}
+@media only screen and (max-width: 768px) and (min-width: 462px) {
+	.textDescription {
+		max-height: 83px;
+	}
+}
+@media only screen and (max-width: 461px) and (min-width: 400px) {
+	.icon {
+		width: 130px;
+		height: 75px;
+	}
+	.textDescription {
+		max-height: 78px;
+	}
+}
+@media only screen and (max-width: 400px) and (min-width: 319px) {
+	.icon {
+		width: 100px;
+		height: 65px;
+	}
+	.textDescription {
+		max-height: 63px;
+	}
+}
+/* @media only screen and (max-width: 1024px) and (min-width: 768px){
 	body{
 		font-size: 16px;
 	}
@@ -102,4 +128,4 @@
 	body{
 		font-size: 14px;
 	}
-}
+} */

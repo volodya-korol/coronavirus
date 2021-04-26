@@ -1,0 +1,45 @@
+
+.screen {
+	width: 375px;
+	height: 667px;
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.inner {
+	padding: 40px 0 80px 0;
+	width: 84%;
+	height: 100%;
+}
+.news {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.7em;
+	line-height: 1.5em;
+	color: #1c2c40;
+}
+.articles {
+	margin-top: 32px;
+	display: grid;
+	row-gap: 14px;
+}
+/* 
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+	body{
+		font-size: 10px;
+	}
+}
+@media only screen and (max-width: 770px) and (min-width: 460px) {
+	body{
+		font-size: 10px;
+	}
+}
+@media only screen and (max-width: 460px){
+	body{
+		font-size: 10px;
+	}
+} */

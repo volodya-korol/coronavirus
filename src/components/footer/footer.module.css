@@ -9,6 +9,7 @@
 	bottom: 0;
 	display: flex;
 	justify-content: center;
+	z-index: 11000;
 }
 .footerContainer {
 	border-top: 1px solid #e5e9f2;

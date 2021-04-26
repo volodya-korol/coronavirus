@@ -1,18 +1,17 @@
-import { getstatisticsInRegionApi } from "../api/api";
+import { getstatisticsInRegionApi, getTotalApi } from "../api/api";
 
 const SET_STATISTICS_IN_REGION = "SET_STATISTICS_IN_REGION";
 const SET_LAST_UPDATE = "SET_LAST_UPDATE";
 const SET_COUNTRY_NAME = "SET_COUNTRY_NAME";
-
 const SET_CONFIRMED = "SET_CONFIRMED";
 const SET_ACTIVE = "SET_ACTIVE";
 const SET_RECOVERED = "SET_RECOVERED";
 const SET_DECEASED = "SET_DECEASED";
-
 const SET_CHANGE_CONFIRMED = "SET_CHANGE_CONFIRMED";
 const SET_CHANGE_ACTIVE = "SET_CHANGE_ACTIVE";
 const SET_CHANGE_RECOVERED = "SET_CHANGE_RECOVERED";
 const SET_CHANGE_DECEASED = "SET_CHANGE_DECEASED";
+const SET_PRELOADER = "SET_PRELOADER";
 
 export const setStatisticsInRegion = (statistics) => ({ type: SET_STATISTICS_IN_REGION, statistics });
 export const setlastUpdate = (time) => ({ type: SET_LAST_UPDATE, time });
@@ -21,11 +20,12 @@ export const setConfirmed = (data) => ({ type: SET_CONFIRMED, data });
 export const setActive = (data) => ({ type: SET_ACTIVE, data });
 export const setRecovered = (data) => ({ type: SET_RECOVERED, data });
 export const setDeceased = (data) => ({ type: SET_DECEASED, data });
-
 export const setChangeConfirmed = (data) => ({ type: SET_CHANGE_CONFIRMED, data });
 export const setChangeActive = (data) => ({ type: SET_CHANGE_ACTIVE, data });
 export const setChangeRecovered = (data) => ({ type: SET_CHANGE_RECOVERED, data });
 export const setChangeDeceased = (data) => ({ type: SET_CHANGE_DECEASED, data });
+
+export const setPreLoader = (bool) => ({ type: SET_PRELOADER, bool });
 
 let InitialSate = {
 	statisticsInRegion: [],
@@ -39,9 +39,15 @@ let InitialSate = {
 	changeRecovered: 0,
 	deceased: 0,
 	changeDeceased: 0,
+	preLoader: false,
 };
 const Homereduser = (state = InitialSate, action) => {
 	switch (action.type) {
+		case SET_PRELOADER:
+			return {
+				...state,
+				preLoader: action.bool,
+			};
 		case SET_STATISTICS_IN_REGION:
 			return {
 				...state,
@@ -101,7 +107,8 @@ const Homereduser = (state = InitialSate, action) => {
 			return state;
 	}
 };
-export const getstatisticsInRegion = (iso = "UKR") => (dispatch) => {
+export const getStatisticsInRegion = (iso = "UKR") => (dispatch) => {
+	dispatch(setPreLoader(true))
 	getstatisticsInRegionApi(iso).then((response) => {
 		console.log(response);
 		if (!response[0]) {
@@ -130,23 +137,43 @@ export const getstatisticsInRegion = (iso = "UKR") => (dispatch) => {
 					recovered += m.recovered;
 					deaths += m.deaths;
 					changeConfirmed = m.confirmed_diff;
-					changeActive += m.active_diff
+					changeActive += m.active_diff;
 					changeRecovered = m.recovered_diff;
 					changeDeaths = m.deaths_diff;
 					return {};
 				});
-				
+
 				dispatch(setChangeConfirmed(changeConfirmed));
 				dispatch(setChangeActive(changeActive));
 				dispatch(setChangeRecovered(changeRecovered));
 				dispatch(setChangeDeceased(changeDeaths));
-
 				dispatch(setConfirmed(confirmed));
 				dispatch(setActive(active));
 				dispatch(setRecovered(recovered));
 				dispatch(setDeceased(deaths));
+				
 			}
 		}
+		dispatch(setPreLoader(false))
+	});
+	
+};
+export const getTotal = () => (dispatch) => {
+	dispatch(setPreLoader(true))
+	getTotalApi().then((response) => {
+		console.log(response);
+		dispatch(setChangeConfirmed(response.confirmed_diff));
+		dispatch(setChangeActive(response.active_diff));
+		dispatch(setChangeRecovered(response.recovered_diff));
+		dispatch(setChangeDeceased(response.deaths_diff));
+		dispatch(setConfirmed(response.confirmed));
+		dispatch(setActive(response.active));
+		dispatch(setRecovered(response.recovered));
+		dispatch(setDeceased(response.deaths));
+		dispatch(setlastUpdate(response.last_update));
+		dispatch(setCountryName("In World"));
+		dispatch(setStatisticsInRegion([]));
+		dispatch(setPreLoader(false))
 	});
 };
 export default Homereduser;

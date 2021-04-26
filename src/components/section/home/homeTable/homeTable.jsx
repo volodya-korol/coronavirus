@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import s from "./homeTable.module.css";
 let HomeTable = (props) => {
+	console.log(props);
 	return (
-		<div>
-			<table className={s.table}>
+		<div className={s.wraperTable}>
+			{props.statisticsInRegion.length > 2?<table className={s.table}>
 				<thead>
 					<tr>
 						<th className={s.tState}>State/UT</th>
@@ -17,14 +17,14 @@ let HomeTable = (props) => {
 				<tbody>
 					{props.statisticsInRegion.length > 1
 						? props.statisticsInRegion.map((m) => {
-								if (!m.region.province) {
+								if (!m.region.province || m.region.province === "Unknown") {
 									return null;
 								} else {
 									return (
-										<tr key={m.active}>
+										<tr>
 											<th>
 												{/* <NavLink className={s.linkTable} to="/lolo"> */}
-													{m.region.province}
+												{m.region.province}
 												{/* </NavLink> */}
 											</th>
 											<th>{m.confirmed}</th>
@@ -37,7 +37,8 @@ let HomeTable = (props) => {
 						  })
 						: console.log("dont have")}
 				</tbody>
-			</table>
+			</table>: <h1 className={s.noResults}> We have no results </h1> }
+			
 		</div>
 	);
 };

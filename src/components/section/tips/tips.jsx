@@ -8,10 +8,18 @@ let Tips = () => {
 				<div className={s.inner}>
 					<h2 className={s.news}>Health Tips</h2>
 					<div className={s.articles}>
+
+
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Звідки взявся цей коронавірус?</p>
 									<br />
 									Загалом коронавіруси – це давно відоме сімейство вірусів. Вірус COVID-19 виник у Китаї в місті Ухань,
@@ -24,10 +32,21 @@ let Tips = () => {
 							</div>
 						</div>
 
+
+
+
+
+
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon2.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon2.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Які симптоми у COVID-19?</p>
 									<br />
 									Найпоширенішими є лихоманка, втома, сухий кашель, порушення дихання та біль у м’язах. Рідше – головний
@@ -42,7 +61,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Які симптоми у COVID-19?</p>
 									<br />
 									Ворота інфекції, тобто те, як вірус потрапляє в тіло, – це очі, ніс і рот. Шлях передачі –
@@ -61,7 +86,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Хто у групі ризику?</p>
 									<br />
 									Усі ми однаково можемо заразитись, але у групі ризику важкого перебігу захворювання люди похилого
@@ -76,7 +107,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Скільки людей у середньому заражає один інфікований?</p>
 									<br />
 									Одна людина щонайменше заразить двох-трьох інших. Якщо порівняти з грипом, з яким часто зіставляють
@@ -90,7 +127,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Як я можу захистити себе від коронавірусу?</p>
 									<br />
 									Найперше – дотримуватися правил карантину: залишатися вдома, працювати з дому і виходити на вулицю
@@ -107,7 +150,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Як довго вірус живе на поверхнях?</p>
 									<br />
 									Точною інформацією, як довго живе вірус на поверхнях, поки не володіє ніхто. Наразі не проводили
@@ -122,7 +171,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Як лікують коронавірус?</p>
 									<br />
 									Тривалість хвороби залежить від важкості перебігу коронавірусу, й у різних людей він різний – від двох
@@ -137,7 +192,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Чи варто боятися вірусу?</p>
 									<br />
 									Пандемія коронавірусу – це дуже серйозно, без перебільшення, треба це усвідомлювати. Впадати в паніку
@@ -153,7 +214,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>Наскільки вірус смертельний?</p>
 									<br />
 									За останніми даними, рівень смертності від коронавірусу становить 20-30 людей на тисячу інфікованих.
@@ -167,7 +234,13 @@ let Tips = () => {
 						<div className={s.content}>
 							<div className={s.text}>
 								<div className={s.textDescription}>
-									<img className={s.icon} width="88px" height="88px" src={window.location.origin + "/images/tips/icon1.svg"} alt="img for article" />
+									<img
+										className={s.icon}
+										width="88px"
+										height="88px"
+										src={window.location.origin + "/images/tips/icon1.svg"}
+										alt="img for article"
+									/>
 									<p className={s.textTitle}>COVID-19 страшніший за грип?</p>
 									<br />
 									Це два абсолютно два різних захворювання, збудники яких – з різних сімейств вірусів. Вони по-різному

@@ -4,11 +4,9 @@ import Country from "./country/country";
 import s from "./countries.module.css";
 
 let Countries = (props) => {
-	let reftextarea = React.createRef();
-	let onpostchange = () => {
-		let text = reftextarea.current.value;
-		props.setSearchValue(text);
-	};
+	const filterCountries = props.countries.filter((country) => {
+		return country.name.toLowerCase().includes(props.searchValue.toLowerCase());
+	});
 	return (
 		<div className={s.container}>
 			<div className={s.screen}>
@@ -26,9 +24,8 @@ let Countries = (props) => {
 							type="search"
 							placeholder="Search..."
 							name="search"
-							onChange={onpostchange}
+							onChange={(e) => props.setSearchValue(e.target.value)}
 							value={props.searchValue}
-							ref={reftextarea}
 						/>
 					</div>
 					<div className={s.list}>
@@ -40,19 +37,11 @@ let Countries = (props) => {
 						</NavLink>
 						<hr />
 						{console.log(props.countries)}
-						{!props.countries
-							? console.log("none")
-							: props.countries.map((m) => (
-									// m.name?
-									<NavLink to={'/home/' + m.alpha3Code}>
-										<Country name={m.name} img={m.flag} key={m.name} />
-									</NavLink>
-									// :
-									// console.log(m)
-									// <NavLink to={'/home/' + m.alpha3Code}>
-									// 	<Country name={m.name} img={m.flag} key={m.name} />
-									// </NavLink>
-							  ))}
+						{filterCountries.map((m) => (
+							<NavLink to={"/home/" + m.alpha3Code}>
+								<Country name={m.name} img={m.flag} key={m.alpha3Code} />
+							</NavLink>
+						))}
 					</div>
 				</div>
 			</div>

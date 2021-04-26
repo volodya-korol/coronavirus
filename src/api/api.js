@@ -21,7 +21,16 @@ export const getstatisticsInRegionApi = (iso) => {
 		})
 		.then((response) => response.data.data);
 };
-
+export const getTotalApi = () => {
+	return axios
+		.get(`https://covid-19-statistics.p.rapidapi.com/reports/total`, {
+			headers: {
+				"x-rapidapi-key": "09668fafe2msh930f9e71becdd62p1304d7jsn1836ad0ae2b5",
+				"x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
+			},
+		})
+		.then((response) => response.data.data);
+};
 export const getStatisticsInRegionMapApi = (region) => {
 	return axios
 		.get(`https://covid-19-statistics.p.rapidapi.com/reports`, {
@@ -33,3 +42,4 @@ export const getStatisticsInRegionMapApi = (region) => {
 		})
 		.then((response) => response.data.data);
 };
+

@@ -1,0 +1,17 @@
+.logoImg {
+	width: 100px;
+	height: 100px;
+	animation: logooo 2s infinite;
+	z-index: 11000;
+}
+@keyframes logooo {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

@@ -1,0 +1,91 @@
+.icon {
+	float: left;
+	top: 0px;
+	padding: 0 7px;
+	width: 120px;
+	height: 70px;
+	padding: 0 7px 4px 0;
+}
+
+.content {
+	display: flex;
+	text-decoration: none;
+	border: 1px solid #e5e9f2;
+	padding: 12px;
+	border-radius: 12px;
+	background: #f9fafc;
+}
+.text {
+	margin-left: 8px;
+	width: 100%;
+}
+
+.link {
+	background-color: rgb(184, 46, 46);
+	display: block;
+}
+.textTitle {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.1em;
+	line-height: 0.9em;
+	color: #1c2c40;
+}
+.textDescription {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.9em;
+	line-height: 1.3em;
+	color: #5a6679;
+	max-height: 79px;
+	width: 100%;
+	transition: max-height 1s;
+	overflow: hidden;
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+	.textDescription {
+		max-height: 90px;
+	}
+	.icon {
+		width: 150px;
+		height: 85px;
+	}
+}
+@media only screen and (max-width: 768px) and (min-width: 460px) {
+	.textDescription {
+		max-height: 83px;
+	}
+	.icon {
+		width: 140px;
+		height: 85px;
+	}
+}
+@media only screen and (max-width: 460px) and (min-width: 400px) {
+	.icon {
+		width: 130px;
+		height: 75px;
+	}
+}
+@media only screen and (max-width: 400px) and (min-width: 350px) {
+	.icon {
+		width: 100px;
+		height: 65px;
+	}
+	.textDescription {
+		max-height: 63px;
+	}
+}
+@media only screen and (max-width: 350px) and (min-width: 319px) {
+	.icon {
+		width: 100px;
+		height: 65px;
+	}
+	.textDescription {
+		max-height: 68px;
+	}
+}
+.textDescription:hover {
+	max-height: 500px;
+}
