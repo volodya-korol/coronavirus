@@ -14,7 +14,7 @@ function App(props) {
 				<Route exact path="/" render={() => <LoadingContainer />} />
 				<Route path="/country">
 					<CountriesContainer />
-					<Footer />
+					
 				</Route>
 				<Route path="/statistick">
 					<StatisticsContainer />

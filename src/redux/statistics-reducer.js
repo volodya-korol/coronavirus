@@ -44,7 +44,6 @@ export const getStatsRegion = (region) => (dispatch) => {
 };
 export const getMinMaxColorInReionValue = (iso = "UKR", type = "confirmed") => (dispatch) => {
 	getstatisticsInRegionApi(iso).then((response) => {
-		console.log(response);
 		let arr1 = {},
 			min = 100000000,
 			max = 0;
@@ -57,7 +56,6 @@ export const getMinMaxColorInReionValue = (iso = "UKR", type = "confirmed") => (
 		min = 1;
 		let progres = Math.ceil(max / 5);
 		let maxprogres = progres;
-
 		let arr = [];
 		arr.push({ stage: 1, min: min, max: progres });
 		for (let i = 2; i <= 5; i++) {
@@ -81,4 +79,4 @@ export const getMinMaxColorInReionValue = (iso = "UKR", type = "confirmed") => (
 };
 
 export default Statisticsreduser;
-// ? min - progres ---- progres + 1 - pregres*2 ==== progres + 1
+

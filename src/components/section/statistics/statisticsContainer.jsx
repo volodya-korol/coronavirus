@@ -8,6 +8,7 @@ class StatisticsApi extends Component {
 	componentDidMount = () => {
 		this.props.getMinMaxColorInReionValue("UKR")
 	};
+	
 	render() {
 		return <Statistics {...this.props} />;
 	}

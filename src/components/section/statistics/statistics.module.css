@@ -115,7 +115,9 @@
 .gray {
 	color: #6c757d;
 }
-
+.scaleWrapper{
+	display: flex;
+}
 
 .scale {
 	margin-top: 32px;
@@ -124,6 +126,8 @@
 	font-weight: 600;
 	line-height: 1.5em;
 	color: #1c2c40;
+	display: table;
+	
 }
 tr {
 	width: 100%;
@@ -136,19 +140,19 @@ tr {
 	text-align: center;
 	background-color: transparent;
 }
-/* @media only screen and (max-width: 1024px) and (min-width: 768px){
+/* /* @media only screen and (max-width: 1024px) and (min-width: 768px){
 	body{
 		font-size: 16px;
 	}
-}
-@media only screen and (max-width: 768px) and (min-width: 460px) {
-	body{
-		font-size: 15px;
+} */
+@media only screen and (max-width: 850px) and (min-width: 300px) {
+	.scaleWrapper{
+		flex-wrap: wrap;
 	}
 }
-@media only screen and (max-width: 460px){
+/* @media only screen and (max-width: 460px){
 	body{
 		font-size: 14px;
 	}
-} */
+}  */
 
