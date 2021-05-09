@@ -7,8 +7,8 @@ import Statistics from "./statistics";
 class StatisticsApi extends Component {
 	componentDidMount = () => {
 		this.props.getMinMaxColorInReionValue("UKR")
+		this.props.getStatsRegion("Ivano-Frankivsk Oblast")
 	};
-	
 	render() {
 		return <Statistics {...this.props} />;
 	}

@@ -1,29 +1,21 @@
 import { getUsersApi } from "../api/api";
 
-const CHANGE_TRACKER_LINK = "CHANGETRACKERLINK";
-const CHANGE_COUNTRY_LINK = "CHANGECOUNTRYLINK";
+const SETGEOLOCATION = "SETGEOLOCATION";
 const SET_ALPHA_CODE_3 = "SET_ALPHA_CODE_3";
 
-export const changeTrackerLink = (boolean) => ({ type: CHANGE_TRACKER_LINK, boolean });
-export const changeCountryLink = (boolean) => ({ type: CHANGE_COUNTRY_LINK, boolean });
+export const setGeolocation = (boolean) => ({ type: SETGEOLOCATION, boolean });
 export const setAlpfaCode3 = (iso) => ({ type: SET_ALPHA_CODE_3, iso });
 
 let InitialSate = {
-	trackerBtn: false,
-	countryBtn: false,
+	geolocation: null,
 	alpfaCode3: null,
 };
 const Loadingreduser = (state = InitialSate, action) => {
 	switch (action.type) {
-		case CHANGE_TRACKER_LINK:
+		case SETGEOLOCATION:
 			return {
 				...state,
-				trackerBtn: action.boolean,
-			};
-		case CHANGE_COUNTRY_LINK:
-			return {
-				...state,
-				countryBtn: action.boolean,
+				geolocation: action.boolean,
 			};
 		case SET_ALPHA_CODE_3:
 			return {
@@ -36,18 +28,14 @@ const Loadingreduser = (state = InitialSate, action) => {
 };
 export const getGeolocation = () => (dispatch) => {
 	let posconfirm = (e) => {
-		dispatch(changeTrackerLink(true));
 		getUsersApi(e.coords.latitude, e.coords.longitude).then((resposse) => {
 			dispatch(setAlpfaCode3(resposse.results[0].components["ISO_3166-1_alpha-3"]));
+			dispatch(setGeolocation(true));
 		});
 	};
 	let poserror = () => {
-		dispatch(changeCountryLink(true));
+		dispatch(setGeolocation(false));
 	};
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(posconfirm, poserror);
-	} else {
-		poserror();
-	}
+	navigator.geolocation.getCurrentPosition(posconfirm, poserror);
 };
 export default Loadingreduser;

@@ -12,7 +12,6 @@ let InitialSate = {
 	statisticsInRegionMap: null,
 	colorRegion: {},
 	scale: [],
-	
 };
 const Statisticsreduser = (state = InitialSate, action) => {
 	switch (action.type) {
@@ -42,18 +41,16 @@ export const getStatsRegion = (region) => (dispatch) => {
 		dispatch(setStatisticsInRegionMap(resposse));
 	});
 };
-export const getMinMaxColorInReionValue = (iso = "UKR", type = "confirmed") => (dispatch) => {
+export const getMinMaxColorInReionValue = (iso = "UKR") => (dispatch) => {
 	getstatisticsInRegionApi(iso).then((response) => {
 		let arr1 = {},
-			min = 100000000,
 			max = 0;
 		response.map((m) => {
 			if (m.confirmed > max) max = m.confirmed;
-			if (m.confirmed < min) min = m.confirmed;
 			return 0;
 		});
 		max = max - (max / 100) * 10;
-		min = 1;
+		let min = 1;
 		let progres = Math.ceil(max / 5);
 		let maxprogres = progres;
 		let arr = [];
@@ -66,17 +63,26 @@ export const getMinMaxColorInReionValue = (iso = "UKR", type = "confirmed") => (
 		arr.push({ stage: 6, max: maxprogres });
 		dispatch(setScale(arr));
 		response.map((m) => {
-			if (m.confirmed > maxprogres)  arr1[`${m.region.province}`]= "#BF171B" ;
-			if (m.confirmed < progres)  arr1[`${m.region.province}`]= "#FFF5F0" ;
-			if (m.confirmed >= progres && m.confirmed < progres * 2)  arr1[`${m.region.province}`]= "#FDD5C4" ;
-			if (m.confirmed >= progres * 2 && m.confirmed < progres * 3)  arr1[`${m.region.province}`]= "#FCA689" ;
-			if (m.confirmed >= progres * 3 && m.confirmed < progres * 4)  arr1[`${m.region.province}`]= "#FA7253" ;
-			if (m.confirmed >= progres * 4 && m.confirmed < progres * 5)  arr1[`${m.region.province}`]= "#EA3B2D" ;
-			return 0;
+			switch (true) {
+				case m.confirmed > maxprogres:
+					return (arr1[`${m.region.province}`] = "#BF171B");
+				case m.confirmed < progres:
+					return (arr1[`${m.region.province}`] = "#FFF5F0");
+				case m.confirmed >= progres && m.confirmed < progres * 2:
+					return (arr1[`${m.region.province}`] = "#FDD5C4");
+				case m.confirmed >= progres * 2 && m.confirmed < progres * 3:
+					return (arr1[`${m.region.province}`] = "#FCA689");
+				case m.confirmed >= progres * 3 && m.confirmed < progres * 4:
+					return (arr1[`${m.region.province}`] = "#FA7253");
+				case m.confirmed >= progres * 4 && m.confirmed < progres * 5:
+					return (arr1[`${m.region.province}`] = "#EA3B2D");
+				default:
+					return null
+			}
+			
 		});
 		dispatch(colorRegion(arr1));
 	});
 };
 
 export default Statisticsreduser;
-

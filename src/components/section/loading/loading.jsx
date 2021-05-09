@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import s from "./loading.module.css";
 
 let Loading = (props) => {
@@ -20,14 +19,6 @@ let Loading = (props) => {
 						<img className={s.logoImg} src={window.location.origin + "/images/loading/frame.svg"} alt="logo" />
 					</div>
 					<p className={s.coronavirusTracker}>Coronavirus Tracker</p>
-					<NavLink
-						to={"/home/" + props.alpfaCode3}
-						className={s.nextbtnT + " " + (props.trackerBtn ? s.active : s.disabled)}>
-						Tracker
-					</NavLink>
-					<NavLink to="/country" className={s.nextbtnC + " " + (props.countryBtn ? s.active : s.disabled)}>
-						Choose Country
-					</NavLink>
 				</div>
 			</div>
 		</div>
