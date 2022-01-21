@@ -1,4 +1,3 @@
-
 .screen {
 	width: 375px;
 	height: 667px;
@@ -72,21 +71,21 @@
 }
 .textDescription {
 	font-family: Proxima Nova;
-	font-style: normal;
 	font-weight: 600;
-	font-size: 0.90em;
+	font-size: 0.9em;
 	line-height: 1.3em;
 	color: #5a6679;
-	max-height: 88px;
-
-	transition: max-height 1s;
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
 	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: -webkit-line-clamp 15s;
 }
 .textDescription:hover {
-	max-height: 500px;
-	
+	-webkit-line-clamp: 15;
 }
-@media only screen and (max-width: 1024px) and (min-width: 769px) {
+/* @media only screen and (max-width: 1024px) and (min-width: 769px) {
 	.textDescription {
 		max-height: 95px;
 	}
@@ -113,7 +112,7 @@
 	.textDescription {
 		max-height: 63px;
 	}
-}
+} */
 /* @media only screen and (max-width: 1024px) and (min-width: 768px){
 	body{
 		font-size: 16px;

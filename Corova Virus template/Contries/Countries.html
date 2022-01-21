@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="Countries.css" />
+		<title>Countries</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="screen">
+				<div class="inner">
+					<div class="back">
+						<a href="../About/about.html"><img class="back__arrow" src="Images/Vector (Stroke).svg" alt="" /></a>
+						<p class="back__choosing-country">Choose your country</p>
+					</div>
+					<div class="search">
+						<img class="search__icon" src="Images/Union.svg" alt="" />
+						<input class="search__input" type="search" placeholder="Search..." name="search" />
+					</div>
+					<div class="list">
+						<div class="regions">
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<a href="../Load/load.html" class="item-text">Worldwide</a>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Your country</p>
+							</div>
+						</div>
+						<hr />
+						<div class="countries">
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+							<div class="regions__item">
+								<img class="item-img" src="Images/🌏.svg" alt="" />
+								<p class="item-text">Worldwide</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			let itemText = document.querySelector(".item-text");
+			let itemImg = document.querySelector(".item-img");
+			let pos = (e) => {
+				
+			};
+			navigator.geolocation.getCurrentPosition(pos);
+
+			fetch("https://restcountries.eu/rest/v2/all")
+				.then((resposse) => resposse.json())
+				.then((resposse) => {
+					itemText.innerHTML = resposse[236].name;
+					itemImg.src = resposse[236].flag;
+
+					console.log(resposse[236]);
+				});
+		</script>
+	</body>
+</html>

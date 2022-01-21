@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getStatisticsInRegion, getTotal } from "../../../redux/home-reducer";
 import { withRouter } from "react-router";
-import Home from "./home";
+import { getStatisticsInRegion, getWorldStats } from "../../../redux/home-reducer";
 import PreLoader from "../../common/Preloader/preloader";
+import Home from "./home";
 class HomeApi extends Component {
 	componentDidMount = () => {
 		this.props.match.params.iso === "total"
-			? this.props.getTotal()
+			? this.props.getWorldStats()
 			: this.props.getStatisticsInRegion(this.props.match.params.iso);
 	};
 	render() {
@@ -49,5 +49,5 @@ let mapStateToProps = (state) => {
 	};
 };
 let withURLData = withRouter(HomeApi);
-const HomeContainer = connect(mapStateToProps, { getStatisticsInRegion, getTotal })(withURLData);
+const HomeContainer = connect(mapStateToProps, { getStatisticsInRegion, getWorldStats })(withURLData);
 export default HomeContainer;

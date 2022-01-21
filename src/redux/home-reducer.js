@@ -1,4 +1,4 @@
-import { getstatisticsInRegionApi, getTotalApi } from "../api/api";
+import { getIsoRegionStats, getWorldStats as  getWorldStatsApi} from "../api/api";
 
 const SET_STATISTICS_IN_REGION = "SET_STATISTICS_IN_REGION";
 const SET_LAST_UPDATE = "SET_LAST_UPDATE";
@@ -89,52 +89,57 @@ const Homereduser = (state = InitialSate, action) => {
 			return state;
 	}
 };
-export const getStatisticsInRegion = (iso = "UKR") => (dispatch) => {
-	dispatch(setPreLoader(true));
-	getstatisticsInRegionApi(iso).then((response) => {
-		if (!response[0]) {
-			return null;
-		} else {
-			dispatch(setStatisticsInRegion(response));
-			dispatch(setCountryName(response[0].region.name));
-			dispatch(setlastUpdate(response[0].last_update));
-			if ((response[0].region.province = "")) {
-				dispatch(setCountryData(response[0].confirmed, response[0].active, response[0].recovered, response[0].deaths));
+export const getStatisticsInRegion =
+	(iso = "UKR") =>
+	(dispatch) => {
+		dispatch(setPreLoader(true));
+		getIsoRegionStats(iso).then((data) => {
+			if (!data[0]) {
+				return null;
 			} else {
-				let confirmed = 0;
-				let active = 0;
-				let recovered = 0;
-				let deaths = 0;
-				let changeConfirmed = 0;
-				let changeActive = 0;
-				let changeRecovered = 0;
-				let changeDeaths = 0;
-				response.map((m) => {
-					confirmed += m.confirmed;
-					active += m.active;
-					recovered += m.recovered;
-					deaths += m.deaths;
-					changeConfirmed += m.confirmed_diff;
-					changeActive += m.active_diff;
-					changeRecovered += m.recovered_diff;
-					changeDeaths += m.deaths_diff;
-					return {};
-				});
-				dispatch(setCountryData(confirmed, active, recovered, deaths));
-				dispatch(setChangeCountryData(changeConfirmed, changeActive, changeRecovered, changeDeaths));
+				dispatch(setStatisticsInRegion(data));
+				dispatch(setCountryName(data[0].region.name));
+				dispatch(setlastUpdate(data[0].last_update));
+
+				if (data[0].region.province === "") {
+					dispatch(
+						setCountryData(data[0].confirmed, data[0].active, data[0].recovered, data[0].deaths)
+					);
+				} else {
+					let confirmed = 0;
+					let active = 0;
+					let recovered = 0;
+					let deaths = 0;
+					let changeConfirmed = 0;
+					let changeActive = 0;
+					let changeRecovered = 0;
+					let changeDeaths = 0;
+					data.map((m) => {
+						confirmed += m.confirmed;
+						active += m.active;
+						recovered += m.recovered;
+						deaths += m.deaths;
+						changeConfirmed += m.confirmed_diff;
+						changeActive += m.active_diff;
+						changeRecovered += m.recovered_diff;
+						changeDeaths += m.deaths_diff;
+						return {};
+					});
+					dispatch(setCountryData(confirmed, active, recovered, deaths));
+					dispatch(setChangeCountryData(changeConfirmed, changeActive, changeRecovered, changeDeaths));
+				}
 			}
-		}
-		dispatch(setPreLoader(false));
-	});
-};
-export const getTotal = () => (dispatch) => {
+			dispatch(setPreLoader(false));
+		});
+	};
+export const getWorldStats = () => (dispatch) => {
 	dispatch(setPreLoader(true));
-	getTotalApi().then((response) => {
-		dispatch(setCountryData(response.confirmed, response.active, response.recovered, response.deaths));
+	getWorldStatsApi().then((data) => {
+		dispatch(setCountryData(data.confirmed, data.active, data.recovered, data.deaths));
 		dispatch(
-			setChangeCountryData(response.confirmed_diff, response.active_diff, response.recovered_diff, response.deaths_diff)
+			setChangeCountryData(data.confirmed_diff, data.active_diff, data.recovered_diff, data.deaths_diff)
 		);
-		dispatch(setlastUpdate(response.last_update));
+		dispatch(setlastUpdate(data.last_update));
 		dispatch(setCountryName("In World"));
 		dispatch(setStatisticsInRegion([]));
 		dispatch(setPreLoader(false));

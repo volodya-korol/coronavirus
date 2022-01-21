@@ -1,45 +1,31 @@
 import * as axios from "axios";
-const getYourCountry = axios.create({
-	baseURL: "https://api.opencagedata.com/geocode/v1/",
+
+const rapidKey = process.env.REACT_APP_RAPIDAPI_KEY;
+const rapidHost = process.env.REACT_APP_RAPIDAPI_HOST;
+
+const rapidApi = axios.create({
+	baseURL: "https://covid-19-statistics.p.rapidapi.com",
+	headers: {
+		"x-rapidapi-key": rapidKey,
+		"x-rapidapi-host": rapidHost,
+	},
 });
 
 export const getUsersApi = (latitude, longitude) => {
-	return getYourCountry
-		.get(`json?q=${latitude}+${longitude}&key=0f1cc81e49684599bdae3fa9c469dcc0`)
-		.then((response) => response.data);
-};
-export const getCountriesApi = () => {
-	return axios.get(`https://restcountries.eu/rest/v2/all`).then((response) => response.data);
-};
-export const getstatisticsInRegionApi = (iso) => {
 	return axios
-		.get(`https://covid-19-statistics.p.rapidapi.com/reports?iso=${iso}`, {
-			headers: {
-				"x-rapidapi-key": "09668fafe2msh930f9e71becdd62p1304d7jsn1836ad0ae2b5",
-				"x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
-			},
-		})
-		.then((response) => response.data.data);
+		.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=0f1cc81e49684599bdae3fa9c469dcc0`)
+		.then((res) => console.log(res.data));
 };
-export const getTotalApi = () => {
-	return axios
-		.get(`https://covid-19-statistics.p.rapidapi.com/reports/total`, {
-			headers: {
-				"x-rapidapi-key": "09668fafe2msh930f9e71becdd62p1304d7jsn1836ad0ae2b5",
-				"x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
-			},
-		})
-		.then((response) => response.data.data);
+export const getIsoRegionStats = (iso) => {
+	return rapidApi.get(`/reports?iso=${iso}`).then((res) => res.data.data);
 };
-export const getStatisticsInRegionMapApi = (region) => {
-	return axios
-		.get(`https://covid-19-statistics.p.rapidapi.com/reports`, {
+export const getWorldStats = () => {
+	return rapidApi.get(`/reports/total`).then((res) => res.data.data);
+};
+export const getRegionStats = (region) => {
+	return rapidApi
+		.get(`/reports`, {
 			params: { region_province: region },
-			headers: {
-				"x-rapidapi-key": "09668fafe2msh930f9e71becdd62p1304d7jsn1836ad0ae2b5",
-				"x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
-			},
 		})
-		.then((response) => response.data.data);
+		.then((res) => res.data.data);
 };
-

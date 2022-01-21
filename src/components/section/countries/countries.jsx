@@ -33,12 +33,12 @@ let Countries = (props) => {
 							<Country name="In World" img={window.location.origin + "/images/countries/planet.svg"} />
 						</NavLink>
 						<NavLink to="/home/UKR">
-							<Country name="Ukraine" img="https://restcountries.eu/data/ukr.svg" />
+							<Country name="Ukraine" img="https://flagcdn.com/ua.svg" />
 						</NavLink>
 						<hr />
 						{filterCountries.map((m,i) => (
 							<NavLink key={i} to={"/home/" + m.alpha3Code}>
-								<Country name={m.name} img={m.flag}/>
+								<Country name={m.name} img={m.flags.svg}/>
 							</NavLink>
 						))}
 					</div>

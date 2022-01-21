@@ -1,0 +1,154 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.container {
+	width: 100%;
+	height: 753px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(248, 133, 87, 0.493);
+}
+.screen {
+	border-radius: 20px;
+	width: 360px;
+	height: 667px;
+	/* width: 100%;
+	height: 100vh; */
+	background-color: #222b45;
+	display: flex;
+	justify-content: center;
+}
+.wpapper-text{
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+.nextbtnT, .nextbtnC{
+	display: none;
+	position: absolute;
+	bottom: 60px;
+	top: auto;
+	padding: 10px 20px;
+	background-color: #eb5569;
+	border-radius: 0.8em;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.9em;
+	color:white;
+	text-decoration: none;
+}
+.images {
+	width: 100%;
+	height: 587px;
+	position: relative;
+	background-image: url(Images/World-Map.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.dw-wrapper_logo {
+	width: 110px;
+	height: 110px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.dw-logo {
+	width: 100px;
+	height: 100px;
+	animation: infinite logo 2s;
+	animation-timing-function: ease-out;
+}
+/* @keyframes logo {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+} */
+.dw-Coronavirus_Tracker {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 30px;
+	text-align: center;
+	color: #eb5569;
+}
+.item {
+	display: none;
+	position: absolute;
+	left: 78px;
+	top: -178px;
+}
+.position {
+	position: absolute;
+	left: center;
+	top: 415px;
+}
+
+.exo,
+.pulse {
+	width: 10px;
+	height: 10px;
+	color: #fff;
+	text-align: center;
+	border-radius: 50%;
+	background: #eb556962;
+	position: relative;
+	transition: 0.5s;
+}
+.exo {
+	animation: radial-pulse 3s infinite;
+	position: absolute;
+}
+.pulse::before,
+.pulse::after {
+	content: "";
+	position: absolute;
+	border: 0.2px solid rgba(235, 85, 105, 0.6);
+	left: -1px;
+	right: -1px;
+	top: -1px;
+	bottom: -1px;
+	border-radius: 50%;
+	animation: pulse 3s linear infinite;
+	opacity: 0;
+}
+.pulse::after {
+	animation-delay: 1s;
+}
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: scale(3);
+		opacity: 0;
+	}
+}
+
+@keyframes radial-pulse {
+	0% {
+		box-shadow: 0 0 0 0px rgba(235, 85, 105, 0.8);
+	}
+
+	100% {
+		box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
+	}
+}

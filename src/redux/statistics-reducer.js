@@ -1,4 +1,4 @@
-import { getStatisticsInRegionMapApi, getstatisticsInRegionApi } from "../api/api";
+import { getIsoRegionStats, getRegionStats } from "../api/api";
 
 const SET_STATISTICS_IN_REGION_MAP = "SET_STATISTICS_IN_REGION_MAP";
 const SET_SCALE = "SET_SCALE";
@@ -37,52 +37,53 @@ const Statisticsreduser = (state = InitialSate, action) => {
 	}
 };
 export const getStatsRegion = (region) => (dispatch) => {
-	getStatisticsInRegionMapApi(region).then((resposse) => {
+	getRegionStats(region).then((resposse) => {
 		dispatch(setStatisticsInRegionMap(resposse));
 	});
 };
-export const getMinMaxColorInReionValue = (iso = "UKR") => (dispatch) => {
-	getstatisticsInRegionApi(iso).then((response) => {
-		let arr1 = {},
-			max = 0;
-		response.map((m) => {
-			if (m.confirmed > max) max = m.confirmed;
-			return 0;
-		});
-		max = max - (max / 100) * 10;
-		let min = 1;
-		let progres = Math.ceil(max / 5);
-		let maxprogres = progres;
-		let arr = [];
-		arr.push({ stage: 1, min: min, max: progres });
-		for (let i = 2; i <= 5; i++) {
-			min += progres;
-			maxprogres += progres;
-			arr.push({ stage: i, min: min, max: maxprogres });
-		}
-		arr.push({ stage: 6, max: maxprogres });
-		dispatch(setScale(arr));
-		response.map((m) => {
-			switch (true) {
-				case m.confirmed > maxprogres:
-					return (arr1[`${m.region.province}`] = "#BF171B");
-				case m.confirmed < progres:
-					return (arr1[`${m.region.province}`] = "#FFF5F0");
-				case m.confirmed >= progres && m.confirmed < progres * 2:
-					return (arr1[`${m.region.province}`] = "#FDD5C4");
-				case m.confirmed >= progres * 2 && m.confirmed < progres * 3:
-					return (arr1[`${m.region.province}`] = "#FCA689");
-				case m.confirmed >= progres * 3 && m.confirmed < progres * 4:
-					return (arr1[`${m.region.province}`] = "#FA7253");
-				case m.confirmed >= progres * 4 && m.confirmed < progres * 5:
-					return (arr1[`${m.region.province}`] = "#EA3B2D");
-				default:
-					return null
+export const getMinMaxColorInReionValue =
+	(iso = "UKR") =>
+	(dispatch) => {
+		getIsoRegionStats(iso).then((response) => {
+			let arr1 = {},
+				max = 0;
+			response.map((m) => {
+				if (m.confirmed > max) max = m.confirmed;
+				return 0;
+			});
+			max = max - (max / 100) * 10;
+			let min = 1;
+			let progres = Math.ceil(max / 5);
+			let maxprogres = progres;
+			let arr = [];
+			arr.push({ stage: 1, min: min, max: progres });
+			for (let i = 2; i <= 5; i++) {
+				min += progres;
+				maxprogres += progres;
+				arr.push({ stage: i, min: min, max: maxprogres });
 			}
-			
+			arr.push({ stage: 6, max: maxprogres });
+			dispatch(setScale(arr));
+			response.map((m) => {
+				switch (true) {
+					case m.confirmed > maxprogres:
+						return (arr1[`${m.region.province}`] = "#BF171B");
+					case m.confirmed < progres:
+						return (arr1[`${m.region.province}`] = "#FFF5F0");
+					case m.confirmed >= progres && m.confirmed < progres * 2:
+						return (arr1[`${m.region.province}`] = "#FDD5C4");
+					case m.confirmed >= progres * 2 && m.confirmed < progres * 3:
+						return (arr1[`${m.region.province}`] = "#FCA689");
+					case m.confirmed >= progres * 3 && m.confirmed < progres * 4:
+						return (arr1[`${m.region.province}`] = "#FA7253");
+					case m.confirmed >= progres * 4 && m.confirmed < progres * 5:
+						return (arr1[`${m.region.province}`] = "#EA3B2D");
+					default:
+						return null;
+				}
+			});
+			dispatch(colorRegion(arr1));
 		});
-		dispatch(colorRegion(arr1));
-	});
-};
+	};
 
 export default Statisticsreduser;

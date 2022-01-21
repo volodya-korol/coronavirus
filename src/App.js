@@ -11,10 +11,10 @@ function App(props) {
 	return (
 		<div>
 			<main>
+
 				<Route exact path="/" render={() => <LoadingContainer />} />
 				<Route path="/country">
 					<CountriesContainer />
-					
 				</Route>
 				<Route path="/statistick">
 					<StatisticsContainer />
@@ -32,6 +32,7 @@ function App(props) {
 					<NewsContainer />
 					<Footer />
 				</Route>
+				
 			</main>
 		</div>
 	);

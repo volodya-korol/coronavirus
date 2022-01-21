@@ -1,0 +1,255 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+}
+@media (max-width: 768px) {
+	* {
+		font-size: 16px;
+	}
+}
+
+
+.container {
+	max-width: 1024px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(248, 133, 87, 0.493);
+}
+.screen {
+	width: 100%;
+	background: #ffffff;
+	background-image: url(Images/Group\ 2.png);
+	background-size: 100% 400px;
+	display: flex;
+	justify-content: center;
+	background-color: lightgreen;
+}
+.inner {
+	background-repeat: no-repeat;
+	padding-top: 40px;
+	padding-bottom: 24px;
+	width: 84%;
+	background-color: lightcoral;
+	
+}
+.name {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 0.875em;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.country {
+	text-decoration: none;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 36px;
+	color: #ffffff;
+	margin-top: 16px;
+	cursor: pointer;
+	display: inline-block;
+}
+.country::after {
+	position: relative;
+	content: url(Images/CaretDownSolid8\(EDDC\).svg);
+	margin-left: 10px;
+	top: -6px;
+}
+.updates {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.875em;
+	line-height: 18px;
+	color: #c0ccda;
+	margin-top: 4px;
+}
+.statistics {
+	margin-top: 71px;
+	width: 100%;
+	min-width: 268px;
+	min-height: 600px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 16px;
+}
+.block {
+	background-color: rgb(255, 255, 255);
+	padding: 20px 16px;
+	box-shadow: 0px 8px 40px rgba(28, 44, 64, 0.2);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.title {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 0.85em;
+	line-height: 14px;
+	text-transform: uppercase;
+	color: #8391a7;
+}
+.count {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.count__all {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 2em;
+	line-height: 36px;
+	color: #ff073a;
+	margin-top: 0.2em;
+}
+.count__container {
+	display: flex;
+	align-items: baseline;
+	padding-bottom: 4px;
+}
+.count__changes {
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.875em;
+	line-height: 24px;
+	color: #ff073a;
+}
+.graf {
+	background-color: rgba(34, 143, 76, 0.329);
+	width: 100%;
+	min-height: 60%;
+	height: 100%;
+	max-height: 80%;
+}
+table {
+	margin-top: 32px;
+	width: 100%;
+	font-family: Proxima Nova;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.875em;
+	line-height: 18px;
+	color: #1c2c40;
+}
+tr {
+	height: 34px;
+	width: 100%;
+}
+th {
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: start;
+	background: #f9fafc;
+	border-radius: 5px;
+}
+.blue{
+	color: #007BFF;
+}
+.green{
+	color: #28A745;
+}
+.gray{
+	color: #6C757D;
+}
+.red {
+	color: #FF073A;
+}
+
+
+
+
+.footer {
+	width: 100%;
+	height: 50px;
+	position: fixed;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0px -1px 0px #e5e9f2;
+	bottom: 0;
+	/* display: none; */
+}
+.footer-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.footer-wrapper {
+	height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.footer-img {
+	width: 24px;
+	height: 24px;
+	display: block;
+}
+.active::before {
+	content: " ";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
+	height: 2px;
+	background: #eb5569;
+	border-radius: 0px 0px 100px 100px;
+}
+.active > svg > path {
+	fill: #eb5569;
+}
+/* 
+@media (max-width: 1024px) {	
+	.footer{
+		display: block;
+	}
+} */
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+	* {
+		font-size: 17px;
+	}	
+	.footer{
+		display: block;
+	}
+}
+@media only screen and (max-width: 768px) and (min-width: 460px) {
+	* {
+		font-size: 15px;
+	}
+	.statistics{
+		min-height: 500px;
+	}
+	.screen {
+		background-size: 100% 300px;	
+	}
+}
+@media only screen and (max-width: 460px){
+	* {
+		font-size: 13px;
+	}
+	.statistics{
+		min-height: 350px;
+	}
+	.screen {
+		background-size: 100% 280px;	
+	}
+}

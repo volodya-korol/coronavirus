@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="load.css" />
+		<title>Load</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="screen">
+				<div class="images">
+					<div class="position">
+						<div class="item">
+							<div class="exo">
+								<div class="pulse"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="dw-wrapper_logo">
+						<img class="dw-logo" src="Images/Frame.svg" alt="" />
+					</div>
+					<p class="dw-Coronavirus_Tracker">Coronavirus Tracker</p>
+					<a class="nextbtnT" href="../About/about.html">Tracker</a>
+					<a class="nextbtnC" href="../Contries/Countries.html">Choose Country</a>
+				</div>
+			</div>
+		</div>
+		<script>
+			let posconfirm = (e) => {
+				let position = document.querySelector(".item");
+				let button = document.querySelector(".nextbtnT");
+				let latitudeF = (latitude) => (latitude * -178) / 48.5;
+				let longitudeF = (longitude) => (longitude * 78) / 24.5;
+				button.style.display = "block";
+				position.style.cssText = `
+					top: ${latitudeF(e.coords.latitude)}px;
+					left: ${longitudeF(e.coords.longitude)}px;
+					display: block;`;
+
+				
+				fetch(
+					`https://api.opencagedata.com/geocode/v1/json?q=${e.coords.latitude}+${e.coords.longitude}&key=0f1cc81e49684599bdae3fa9c469dcc0`
+				)
+					.then((resposse) => resposse.json())
+					.then((resposse) => {
+						console.log(resposse.results[0].components["ISO_3166-1_alpha-3"]);
+					});
+
+
+
+				// ПЕРЕЙТИ НА СТАТИСТИКУ
+			};
+			let poserror = () => {
+				let button = document.querySelector(".nextbtnC");
+				button.style.display = "block";
+				x()
+			};
+			let x = () => {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(posconfirm, poserror); 
+				} else {
+					poserror();
+				}
+			};
+			x();
+		</script>
+	</body>
+</html>
